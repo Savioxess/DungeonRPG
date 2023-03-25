@@ -1,5 +1,61 @@
-[gd_scene format=2]
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://GUI/BackgroundImage.png" type="Texture" id=1]
+[ext_resource path="res://GUI/Fonts/Staatliches-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 1600, 800 )
+
+[sub_resource type="Theme" id=1]
+PanelContainer/styles/panel = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Frame" type="PanelContainer" parent="."]
+margin_right = 1025.0
+margin_bottom = 600.0
+
+[node name="PlayButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -125.0
+margin_right = 150.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_disabled = Color( 1, 0.976471, 0.741176, 1 )
+custom_colors/font_color_focus = Color( 0.996078, 0.976471, 0.741176, 1 )
+custom_colors/font_color = Color( 0.996078, 0.976471, 0.741176, 1 )
+custom_colors/font_color_hover = Color( 0.83, 0.80842, 0.6142, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.976471, 0.756863, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 4 )
+text = "PLAY"
+
+[connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
